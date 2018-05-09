@@ -55,7 +55,7 @@ ad_proc -public ::ImageMagick::convert {
     @param input_file The full path to the input file
     @param output_file The full path to the output file
 } {
-    set args {}
+    set args [list]
     foreach option $options {
         lappend args $option
     }
