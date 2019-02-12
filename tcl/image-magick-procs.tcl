@@ -27,7 +27,7 @@ ad_proc -public ::ImageMagick::convert_path {
     Returns the full path to the ImageMagick convert binary.
 } {
     return "[bin_path]convert"
-            
+
 }
 
 ad_proc -public ::ImageMagick::identify_path {
@@ -45,7 +45,7 @@ ad_proc -public ::ImageMagick::convert {
     output_file
 } {
     Invokes the ImageMagick convert command with the given arguments.
-    Ultimately, all options to convert will be encapsulated as switch 
+    Ultimately, all options to convert will be encapsulated as switch
     parameters to this procedure, and validation can be done on that.
     However, until this is done, the <code>options</code> parameter
     can be used to specify arbitrary extra parameters.
@@ -327,3 +327,9 @@ ad_proc -public ImageMagick::util::delete_item {
 } {
     db_exec_plsql del {}
 }
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:
