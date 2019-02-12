@@ -219,13 +219,6 @@ ad_proc -public ::ImageMagick::util::create_image_item {
     if [empty_string_p $user_ip] { set user_ip [ns_conn peeraddr] }
     if [empty_string_p $name] { set name "image-$revision_id" }
 
-    # process empty string => db_null (no need, I think, but correct to do so)
-    foreach var {description parent_id relation_tag} {
-        if [empty_string_p [set $var]] {
-            set $var [db_null]
-        }
-    }
-
     # test file for existence, checking in tmp directory if needed
     if {![file readable $file]} {
         set _file $file
@@ -287,7 +280,6 @@ ad_proc -public ::ImageMagick::util::revise_image {
     if [empty_string_p $user_id] { set user_id [ad_conn user_id] }
     if [empty_string_p $user_ip] { set user_ip [ns_conn peeraddr] }
     if [empty_string_p $name] { set name "image-$revision_id" }
-    if [empty_string_p $description] { set description [db_null] }
 
     # test file for existence, checking in tmp directory if needed
     if {![file readable $file]} {
